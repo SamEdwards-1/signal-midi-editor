@@ -2,6 +2,7 @@ import * as Sentry from "@sentry/browser"
 import { configure } from "mobx"
 import { createRoot } from "react-dom/client"
 import { App } from "./components/App/App"
+import "./styles/tailwind.css"
 
 Sentry.init({
   dsn: process.env.SENTRY_DSN,

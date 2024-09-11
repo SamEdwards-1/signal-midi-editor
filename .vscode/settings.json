@@ -13,5 +13,22 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },
-  "testing.openTesting": "neverOpen"
+  "testing.openTesting": "neverOpen",
+  "colorWheel.settings.workspaceColor": "hsl(91,12%,38%)",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#c0f5f7",
+    "titleBar.activeForeground": "#000000",
+    "titleBar.inactiveBackground": "#c0f5f7",
+    "titleBar.inactiveForeground": "#000000",
+    "titleBar.border": "#c0f5f7",
+    "activityBar.background": "#c0f5f7",
+    "activityBar.foreground": "#000000",
+    "statusBar.background": "#c0f5f7",
+    "statusBar.foreground": "#000000",
+    "statusBar.debuggingBackground": "#c0f5f7",
+    "statusBar.debuggingForeground": "#000000",
+    "tab.activeBorder": "#c0f5f7",
+    "iLoveWorkSpaceColors": true,
+    "iLoveWorkSpaceRandom": false
+  }
 }
