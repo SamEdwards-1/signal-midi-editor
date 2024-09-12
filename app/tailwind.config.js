@@ -52,8 +52,7 @@ const colors = {
 module.exports = {
   content: [
     "./app/src/**/*.{js,jsx,ts,tsx}",
-    "./app/src/public/*.html",
-    "./static/src/**/*.{js,jsx,ts,tsx,html}"
+    "./app/src/public/*.html"
   ],
   theme: {
     extend: {
@@ -81,8 +80,9 @@ module.exports = {
         },
         canvas: {
           css: {
+            fontFamily: "Arial",
           },
-          fontFamily: "Arial",
+
         },
       },
       plugins: [],
