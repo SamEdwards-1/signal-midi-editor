@@ -56,29 +56,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      //colors: {
-      // themeColor: Blue,//'#3c57dd', //"hsl(230, 70%, 55%)",
-      // secondaryText: Gray,
-      // textColor: "#ffffff",
-      // tertiaryTextColor: "#5a6173",
-      // dividerColor: "#454a58",
-      // secondaryBackgroundColor: "hsl(227, 16%, 22%)",
-      // backgroundColor: "hsl(228, 16%, 18%)",
-      // pianoKeyBlack: "#272a36",
-      // pianoKeyWhite: "#fbfcff",
-      // pianoBlackKeyLaneColor: "hsl(228, 16%, 15%)",
-      // ghostNoteColor: "#444444",
-      // recordColor: "#dd3c3c",
-      // shadowColor: "rgba(0, 0, 0, 0.2)",
-      // highlightColor: "#8388a51a",
-      // redColor: "#DE5267",
-      // greenColor: "#31DE53",
-
-
-
-      // backgroundColor: {
-      //   default: "hsl(230, 70%, 55%)", // Using themeColor as the default background
-      // },
       colors: {
         gray: colors.Gray,
         blue: colors.Blue,
