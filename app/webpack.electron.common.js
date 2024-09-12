@@ -9,7 +9,9 @@ module.exports = {
     browserMain: "./src/index.tsx",
   },
   output: {
+    path: path.resolve(__dirname, "dist"),
     filename: "[name]-[chunkhash].js",
+    publicPath: "/",
     clean: true,
   },
   module: {
