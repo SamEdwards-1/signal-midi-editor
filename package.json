@@ -39,5 +39,8 @@
     "app",
     "packages/*"
   ],
-  "packageManager": "npm@10.8.1"
+  "packageManager": "npm@10.8.1",
+  "dependencies": {
+    "tonic.ts": "^0.1.0"
+  }
 }

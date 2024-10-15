@@ -1,5 +1,6 @@
 .aider*
-
+.vscode 
+.vscode/**
 # Logs
 logs
 *.log
