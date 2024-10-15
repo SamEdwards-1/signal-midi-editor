@@ -25,6 +25,8 @@ export function detectKey(notes: string[]): string[] {
 
 /**
  * Converts an array of assembled note events to an array of unique pitch classes.
+ * Information is work preserving for purposes of collapsing the pianoroll (hide out-of-scale
+ * notes)
  * @param notes - An array of assembled note events.
  * @returns An array of unique pitch classes.
  */
