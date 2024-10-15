@@ -45,15 +45,13 @@ export function getUniquePitchClasses(notes: { noteNumber: number }[]): string[]
 
 
 /**
- * Detects the scale(s) of a given set of notes.
- * @param notes - An array of note strings.
+ * Detects the scale(s) of a given set of MIDI note events.
+ * @param noteEvents - An array of MIDI note events.
  * @returns An array of possible scales.
  */
-export function detectScale(notes: string[]): string[] {
-  // Convert notes to pitch classes
-  const pitchClasses = notes
-    .map(note => Note.pitchClass(note))
-    .filter(pc => pc !== null) as string[];
+export function detectScale(noteEvents: { noteNumber: number }[]): string[] {
+  // Get unique pitch classes from note events
+  const pitchClasses = getUniquePitchClasses(noteEvents);
 
   // Get all known scale names
   const allScales = Scale.names();
