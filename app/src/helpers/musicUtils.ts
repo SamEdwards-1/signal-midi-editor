@@ -23,6 +23,24 @@ export function detectKey(notes: string[]): string[] {
   return keyNames;
 }
 
+/**
+ * Converts an array of assembled note events to an array of unique pitch classes.
+ * @param notes - An array of assembled note events.
+ * @returns An array of unique pitch classes.
+ */
+export function getUniquePitchClasses(notes: { noteNumber: number }[]): string[] {
+  const pitchClasses = new Set<string>();
+
+  notes.forEach(note => {
+    const pitchClass = Note.pitchClass(Note.fromMidi(note.noteNumber));
+    if (pitchClass) {
+      pitchClasses.add(pitchClass);
+    }
+  });
+
+  return Array.from(pitchClasses);
+}
+
 
 /**
  * Detects the scale(s) of a given set of notes.
