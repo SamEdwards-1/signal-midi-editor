@@ -1,4 +1,4 @@
-import { detectKey, detectScale } from '../musicUtils';
+import { detectKey, detectScale } from './musicUtils';
 
 describe('Music Utilities using Tonal', () => {
   test('detectKey identifies C major key', () => {
