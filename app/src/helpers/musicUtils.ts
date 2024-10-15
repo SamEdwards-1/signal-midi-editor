@@ -1,4 +1,28 @@
-import { Note, Scale } from "tonal";
+import * as Key from '@tonaljs/key';
+import * as Scale from '@tonaljs/scale';
+import { Note } from 'tonal';
+
+
+/**
+ * Detects the key(s) of a given set of notes.
+ * @param notes - An array of note strings (e.g., ['C4', 'E4', 'G4']).
+ * @returns An array of possible keys.
+ */
+export function detectKey(notes: string[]): string[] {
+  // Convert notes to pitch classes (e.g., 'C4' -> 'C')
+  const pitchClasses = notes
+    .map(note => Note.pitchClass(note))
+    .filter(pc => pc !== null) as string[];
+
+  // Get key candidates
+  const keys = Key.majorKey(pitchClasses.join(' ')).relativeKeys;
+
+  // Extract key names
+  const keyNames = keys.map(key => key.tonic + ' ' + key.type);
+
+  return keyNames;
+}
+
 
 /**
  * Detects the scale(s) of a given set of notes.
