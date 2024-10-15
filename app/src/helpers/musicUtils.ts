@@ -15,10 +15,10 @@ export function detectKey(notes: string[]): string[] {
     .filter(pc => pc !== null) as string[];
 
   // Get key candidates
-  const keys = Key.majorKey(pitchClasses.join(' ')).relativeKeys;
+  const keyInfo = Key.key(pitchClasses.join(' '));
 
   // Extract key names
-  const keyNames = keys.map(key => key.tonic + ' ' + key.type);
+  const keyNames = keyInfo.tonic ? [`${keyInfo.tonic} ${keyInfo.type}`] : [];
 
   return keyNames;
 }
