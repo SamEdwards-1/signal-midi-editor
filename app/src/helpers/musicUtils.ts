@@ -47,10 +47,10 @@ export function getUniquePitchClasses(notes: { noteNumber: number }[]): string[]
 /**
  * Detects the scale(s) of a given set of MIDI note events.
  * @param noteEvents - An array of MIDI note events.
- * @param options - Optional settings for scale detection.
+ * @param options - Optional settings for scale detection, including tonic and match type.
  * @returns An array of possible scales.
  */
-export function detectScale(noteEvents: { noteNumber: number }[], options?: { tonic?: string }): string[] {
+export function detectScale(noteEvents: { noteNumber: number }[], options: { tonic?: string, match?: string } = { match: "exact" }): string[] {
   // Get unique pitch classes from note events
   const pitchClasses = getUniquePitchClasses(noteEvents);
 
