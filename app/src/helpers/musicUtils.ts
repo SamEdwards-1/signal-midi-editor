@@ -15,7 +15,7 @@ export function detectKey(notes: string[]): string[] {
 
   // Get key candidates
   const possibleKeys = pitchClasses.flatMap(tonic => {
-    const scales = detectScale(notes.map(note => ({ noteNumber: Note.midi(note) })), { tonic });
+    const scales = Scale.detect(notes.map(note => Note.pitchClass(note)), { tonic });
     return scales.map(scale => `${tonic} ${scale}`);
   });
 
