@@ -1,4 +1,3 @@
-import { detect as detectKey } from '@tonaljs/key';
 import * as Scale from '@tonaljs/scale';
 import { Note } from 'tonal';
 
@@ -15,8 +14,8 @@ export function detectKey(notes: string[]): string[] {
     .filter(pc => pc !== null) as string[];
 
   // Get key candidates
-  const keyInfo = detectKey(pitchClasses.join(' '));
-
+  const pitchClasses = getUniquePitchClasses(noteEvents);
+  const possibleKeys = Key.detect(notes);
   // Extract key names
   const keyNames = keyInfo.tonic ? [`${keyInfo.tonic} ${keyInfo.type}`] : [];
 
