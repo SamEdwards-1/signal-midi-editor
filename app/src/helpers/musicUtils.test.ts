@@ -3,10 +3,16 @@ import { Note } from 'tonal';
 
 describe('musicUtils', () => {
   describe('detectKey', () => {
-    it('identifies C major key from MIDI note events', () => {
-      const midiNotes = [60, 62, 64, 65, 67, 69, 71]; // C4, D4, E4, F4, G4, A4, B4
-      const uniquePitchClasses = getUniquePitchClasses(midiNotes.map(noteNumber => ({ noteNumber })));
-      expect(detectKey(uniquePitchClasses)).toContain('C major');
+    it('returns an array of possible key matches for C major', () => {
+      const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4'];
+      const possibleKeys = detectKey(notes);
+      expect(possibleKeys).toEqual(expect.arrayContaining(['C major']));
+    });
+
+    it('returns an array of possible key matches for A minor', () => {
+      const notes = ['A4', 'B4', 'C5', 'D5', 'E5', 'F5', 'G5'];
+      const possibleKeys = detectKey(notes);
+      expect(possibleKeys).toEqual(expect.arrayContaining(['A minor']));
     });
   });
 
