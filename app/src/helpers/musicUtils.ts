@@ -1,4 +1,4 @@
-import * as Key from '@tonaljs/key';
+import { detect as detectKey } from '@tonaljs/key';
 import * as Scale from '@tonaljs/scale';
 import { Note } from 'tonal';
 
@@ -15,7 +15,7 @@ export function detectKey(notes: string[]): string[] {
     .filter(pc => pc !== null) as string[];
 
   // Get key candidates
-  const keyInfo = Key.key(pitchClasses.join(' '));
+  const keyInfo = detectKey(pitchClasses.join(' '));
 
   // Extract key names
   const keyNames = keyInfo.tonic ? [`${keyInfo.tonic} ${keyInfo.type}`] : [];
@@ -50,7 +50,7 @@ export function getUniquePitchClasses(notes: { noteNumber: number }[]): string[]
  * @param options - Optional settings for scale detection, including tonic and match type.
  * @returns An array of possible scales.
  */
-export function detectScale(noteEvents: { noteNumber: number }[], options: { tonic?: string, match?: string } = { match: "exact" }): string[] {
+export function detectScale(noteEvents: { noteNumber: number }[], options: { tonic?: string, match?: "exact" | "fit" } = { match: "exact" }): string[] {
   // Get unique pitch classes from note events
   const pitchClasses = getUniquePitchClasses(noteEvents);
 
