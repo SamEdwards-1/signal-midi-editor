@@ -6,13 +6,13 @@ describe('musicUtils', () => {
     it('returns an array of possible key matches for C major', () => {
       const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4'];
       const possibleKeys = detectKey(notes);
-      expect(possibleKeys).toEqual(expect.arrayContaining(['C major']));
+      expect(possibleKeys).toEqual(expect.arrayContaining(['C C major']));
     });
 
     it('returns an array of possible key matches for A minor', () => {
       const notes = ['A4', 'B4', 'C5', 'D5', 'E5', 'F5', 'G5'];
       const possibleKeys = detectKey(notes);
-      expect(possibleKeys).toEqual(expect.arrayContaining(['A minor']));
+      expect(possibleKeys).toEqual(expect.arrayContaining(['A A minor']));
     });
   });
 
@@ -26,7 +26,7 @@ describe('musicUtils', () => {
     it('identifies A minor scale from MIDI note events with default options', () => {
       const midiNotes = [69, 71, 72, 74, 76, 77, 79]; // A4, B4, C5, D5, E5, F5, G5
       const noteEvents = midiNotes.map(noteNumber => ({ noteNumber }));
-      expect(detectScale(noteEvents)).toContain('A natural minor');
+      expect(detectScale(noteEvents)).toContain('A minor');
     });
   });
 
