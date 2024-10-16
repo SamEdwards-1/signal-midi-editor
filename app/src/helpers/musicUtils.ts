@@ -14,12 +14,12 @@ export function detectKey(notes: string[]): string[] {
     .filter(pc => pc !== null) as string[];
 
   // Get key candidates
-  const pitchClasses = getUniquePitchClasses(noteEvents);
-  const possibleKeys = Key.detect(notes);
-  // Extract key names
-  const keyNames = keyInfo.tonic ? [`${keyInfo.tonic} ${keyInfo.type}`] : [];
+  const possibleKeys = pitchClasses.flatMap(tonic => {
+    const scales = detectScale(notes.map(note => ({ noteNumber: Note.midi(note) })), { tonic });
+    return scales.map(scale => `${tonic} ${scale}`);
+  });
 
-  return keyNames;
+  return possibleKeys;
 }
 
 /**
