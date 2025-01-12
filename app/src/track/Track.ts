@@ -1,3 +1,4 @@
+import { Scale } from "@tonaljs/scale"
 import isEqual from "lodash/isEqual"
 import omit from "lodash/omit"
 import sortBy from "lodash/sortBy"
@@ -41,7 +42,7 @@ export default class Track {
   id: TrackId = UNASSIGNED_TRACK_ID
   events: TrackEvent[] = []
   channel: number | undefined = undefined
-
+  scale: Scale = new Scale()
   private lastEventId = 0
 
   getEventById = (id: number): TrackEvent | undefined =>
