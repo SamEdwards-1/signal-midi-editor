@@ -68,6 +68,7 @@ export default class Track {
       events: observable.shallow,
       channel: observable,
     })
+    return newEvent
   }
 
   private _updateEvent<T extends TrackEvent>(
