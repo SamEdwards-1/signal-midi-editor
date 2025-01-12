@@ -1,4 +1,4 @@
-import { Scale } from "@tonaljs/scale"
+import { Scale, scaleNotes } from "@tonaljs/scale"
 import isEqual from "lodash/isEqual"
 import omit from "lodash/omit"
 import sortBy from "lodash/sortBy"
@@ -42,7 +42,7 @@ export default class Track {
   id: TrackId = UNASSIGNED_TRACK_ID
   events: TrackEvent[] = []
   channel: number | undefined = undefined
-  scale: Scale = new Scale()
+  scale: Scale = scaleNotes([])
   private lastEventId = 0
 
   getEventById = (id: number): TrackEvent | undefined =>
@@ -136,7 +136,16 @@ export default class Track {
       id: this.lastEventId++,
     } as T
     this.events.push(newEvent)
-    return newEvent
+    const newEvent = {
+      ...omit(e, ["deltaTime", "channel"]),
+      id: this.lastEventId++,
+    } as T
+    this.events.push(newEvent)
+
+    // Update scale with note names
+    if (isNoteEvent(newEvent)) {
+      this.scale = scaleNotes(this.events.filter(isNoteEvent).map(event => event.noteName))
+    }
   }
 
   addEvent<T extends TrackEvent>(e: Omit<T, "id">): T {
