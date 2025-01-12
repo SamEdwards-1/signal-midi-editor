@@ -44,6 +44,7 @@ export default class Track {
   channel: number | undefined = undefined
   scale: Scale = scaleNotes([])
   private lastEventId = 0
+  private noteNames: string[] = []
 
   getEventById = (id: number): TrackEvent | undefined =>
     this.events.find((e) => e.id === id)
@@ -136,15 +137,9 @@ export default class Track {
       id: this.lastEventId++,
     } as T
     this.events.push(newEvent)
-    const newEvent = {
-      ...omit(e, ["deltaTime", "channel"]),
-      id: this.lastEventId++,
-    } as T
-    this.events.push(newEvent)
-
-    // Update scale with note names
     if (isNoteEvent(newEvent)) {
-      this.scale = scaleNotes(this.events.filter(isNoteEvent).map(event => event.noteName))
+      this.noteNames.push(newEvent.noteName)
+      this.scale = scaleNotes(this.noteNames)
     }
   }
 
