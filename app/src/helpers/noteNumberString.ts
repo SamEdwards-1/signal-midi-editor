@@ -29,4 +29,9 @@ function controllerTypeString(controllerType: number): string {
   return MIDIControlEventNames[controllerType]
 }
 
-export { noteNameWithOctString, noteNumberString, controllerTypeString }
+function pitchClassStringFromNoteNumber(noteNumber: number): string {
+  return NOTE_NAMES[(noteNumber % 12)]
+}
+
+export { controllerTypeString, noteNameWithOctString, noteNumberString, pitchClassStringFromNoteNumber }
+

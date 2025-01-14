@@ -1,4 +1,4 @@
-import { Scale, get } from "@tonaljs/scale"
+import { get, Scale } from "@tonaljs/scale"
 import isEqual from "lodash/isEqual"
 import omit from "lodash/omit"
 import sortBy from "lodash/sortBy"
@@ -11,6 +11,7 @@ import {
 import { action, computed, makeObservable, observable, transaction } from "mobx"
 import { createModelSchema, list, primitive } from "serializr"
 import { bpmToUSecPerBeat } from "../helpers/bpm"
+import { pitchClassStringFromNoteNumber } from "../helpers/noteNumberString"
 import { pojo } from "../helpers/pojo"
 import {
   programChangeMidiEvent,
@@ -68,7 +69,6 @@ export default class Track {
       events: observable.shallow,
       channel: observable,
     })
-    return newEvent
   }
 
   private _updateEvent<T extends TrackEvent>(
@@ -139,9 +139,11 @@ export default class Track {
     } as T
     this.events.push(newEvent)
     if (isNoteEvent(newEvent)) {
-      this.noteNames.push(newEvent.noteName)
+      this.noteNames.push(pitchClassStringFromNoteNumber(newEvent.noteNumber))
       this.scale = get(this.noteNames.join(" "))
     }
+
+    return newEvent
   }
 
   addEvent<T extends TrackEvent>(e: Omit<T, "id">): T {

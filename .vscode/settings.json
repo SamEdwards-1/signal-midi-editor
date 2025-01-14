@@ -14,5 +14,22 @@
     "source.organizeImports": "explicit"
   },
   "testing.openTesting": "neverOpen",
-  "testing.automaticallyOpenTestResults": "neverOpen"
+  "testing.automaticallyOpenTestResults": "neverOpen",
+  "colorWheel.settings.workspaceColor": "hsl(91,12%,38%)",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#bc7434",
+    "titleBar.activeForeground": "#FFFFFF",
+    "titleBar.inactiveBackground": "#bc7434",
+    "titleBar.inactiveForeground": "#FFFFFF",
+    "titleBar.border": "#bc7434",
+    "activityBar.background": "#bc7434",
+    "activityBar.foreground": "#FFFFFF",
+    "statusBar.background": "#bc7434",
+    "statusBar.foreground": "#FFFFFF",
+    "statusBar.debuggingBackground": "#bc7434",
+    "statusBar.debuggingForeground": "#FFFFFF",
+    "tab.activeBorder": "#bc7434",
+    "iLoveWorkSpaceColors": true,
+    "iLoveWorkSpaceRandom": false
+  }
 }
