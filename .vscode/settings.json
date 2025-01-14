@@ -14,6 +14,7 @@
     "source.organizeImports": "explicit"
   },
   "testing.openTesting": "neverOpen",
+<<<<<<< HEAD
   "testing.automaticallyOpenTestResults": "neverOpen",
   "colorWheel.settings.workspaceColor": "hsl(91,12%,38%)",
   "workbench.colorCustomizations": {
@@ -33,3 +34,7 @@
     "iLoveWorkSpaceRandom": false
   }
 }
+=======
+  "testing.automaticallyOpenTestResults": "neverOpen"
+}
+>>>>>>> main
